@@ -10,7 +10,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        
+        <style>
+            .heading{
+                color: red;
+                position: absolute;
+            }
+        </style>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -23,9 +28,15 @@
         <script src="build/react-dom.js"></script>
         <script>
             ReactDOM.render(
-              React.DOM.h1(null, "Hello world!"),
+              React.DOM.h1(
+                            {className:'heading', id:'title'}, 
+              React.DOM.span(null, 
+              React.DOM.em(null,"Hell"),"o"),
+              "World !"),
               document.getElementById("app")
             );
+
+            
         </script>
     </body>
 </html>
