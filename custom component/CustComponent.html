@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Hello World</title>
+        <title>Custom component</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -17,6 +17,10 @@
         <![endif]-->
         <div id="app">
 
+        </div>
+        <hr>
+        <div id="app1">
+            
         </div>
         <script src="../build/react.js"></script>
         <script src="../build/react-dom.js"></script>
@@ -31,7 +35,10 @@
               document.getElementById("app")
             );
 
-
+            ReactDOM.render(
+                React.createElement("span",null,"Hello"),
+                document.getElementById('app1')
+            )
         </script>
     </body>
 </html>

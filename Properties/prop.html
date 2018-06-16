@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Properties</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <p> <h3> Properties </h3> </p>
+        <div id="app">
+
+        </div>
+        <hr>
+        <p> <h3> PropType </h3> </p>
+        <div id="app1">
+          
+        </div>
+        <hr>
+        <p> <h3> Default property </h3> </p>
+        <div id="app2">
+          
+        </div>
+        <script src="../build/react.js"></script>
+        <script src="../build/react-dom.js"></script>
+        <script>
+            let component = React.createClass({
+                render:function(){
+                    return React.DOM.span(null,'My propety name is '+this.props.name);
+                }
+            })
+            ReactDOM.render(
+              React.createElement(component,{name:"Hot"}),
+              document.getElementById("app")
+            );
+            let secComp = React.createClass({
+                propTypes:{
+                    name:React.PropTypes.string.isRequired
+                },
+                render:function(){
+                    return React.DOM.span(null,'my secound property name is '+this.props.name)
+                }
+            })
+            ReactDOM.render(
+                React.createElement(secComp,{name:'santosh'}),
+                document.getElementById('app1')
+            );
+
+            let thiredComp = React.createClass({
+                propTypes:{
+                    firstName:React.PropTypes.string.isRequired,
+                    lastName: React.PropTypes.string.isRequired,
+                    age:React.PropTypes.number,
+                    male:React.PropTypes.bool
+                },
+                getDefaultProps:function(){
+                    return {
+                        age:20,
+                        male:true
+                    }
+                },
+                render:function(){
+                    return React.DOM.span(null,'my default property name is '+ JSON.stringify(this.props))
+                }
+            });
+            ReactDOM.render(
+                React.createElement(thiredComp),
+                document.getElementById('app2')
+            );
+        </script>
+    </body>
+</html>
