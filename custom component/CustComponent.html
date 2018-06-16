@@ -10,14 +10,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <style>
-            .heading{
-                color: red;
-                position: absolute;
-            }
-        </style>
-        <!-- Babel ECMAScript 6 injunction -->  
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -28,16 +20,18 @@
         </div>
         <script src="../build/react.js"></script>
         <script src="../build/react-dom.js"></script>
-        <script type="text/babel">  
-         
+        <script>
+            let component = React.createClass({
+                render:function(){
+                    return React.DOM.span(null,'This is custome Component example')
+                }
+            })
             ReactDOM.render(
-              <h1 id="title" className="heading">
-                <span><em>Hello</em>World !</span>
-              </h1>
-              ,
+              React.createElement(component),
               document.getElementById("app")
             );
-            
+
+
         </script>
     </body>
 </html>
