@@ -22,6 +22,10 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="app">
+        
+        </div>
+        <br>
+        <div id="root">
 
         </div>
         <script src="../build/react.js"></script>
@@ -34,17 +38,35 @@
                 render: function(){
                     return (
                         <div>
-                                <h1> Hello World</h1> <span> Love with github</span>
+                                <h1> Hello World</h1> 
+                                <Message/>
                         </div>
                     ) 
                 }
             })
-            
+            let Message = React.createClass({
+                render:function(){
+                    return <span> Love with github</span>
+                }
+            })
             ReactDOM.render(<MessagBox/>,
             document.getElementById('app'),()=>{
                 console.log('after render')
             })
-            
+
+            //react DOM 
+
+            let MessageBoxReactDOM = React.createClass({
+                render:function(){
+                    return React.DOM.div(null,
+                    React.DOM.h1(null,'HelloWorld')
+                    )
+                }
+            })
+            ReactDOM.render(
+                React.createElement(MessageBoxReactDOM),
+                document.getElementById('root')
+            )
         </script>
     </body>
 </html>
