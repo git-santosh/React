@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link , Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link , Redirect ,withRouter} from "react-router-dom";
 
 const fackAuth = {
     isAuthenticated : false , 
@@ -23,11 +23,13 @@ const Protected = () => (
         Protected
     </div>
 )
-const AuthButton = () => (
+const AuthButton = withRouter(({history}) => (
     fackAuth.isAuthenticated === true ? 
-    <p> Welcome ! <button onClick={()=> ({})}>sign Out</button></p>
+    <p> Welcome ! <button onClick={()=> {
+        fackAuth.signOut(()=> history.push('/'))
+    }}>sign Out</button></p>
     : <p> You are not logged in </p>
-)
+))
 const PrivateRoute = ({component : Component , ...rest }) => (
     <Route {...rest} render = {(props) => (
         fackAuth.isAuthenticated ? <Component /> : <Redirect to={{
