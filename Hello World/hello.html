@@ -21,20 +21,30 @@
         <script src="../build/react.js"></script>
         <script src="../build/react-dom.js"></script>
         <script>
-            ReactDOM.render(
-              React.DOM.h1(
-                {className:'heading', id:'title',style:{
-                    position:'absolute',
-                    color:'red',
-                    fontFamily: "Verdana",
-                }}, 
-              React.DOM.span(null, 
-              React.DOM.em(null,"Hell"),"o"),
-              "World !"),
-              document.getElementById("app")
-            );
+            // ReactDOM.render(
+            //   React.DOM.h1(
+            //     {className:'heading', id:'title',style:{
+            //         position:'absolute',
+            //         color:'red',
+            //         fontFamily: "Verdana",
+            //     }}, 
+            //   React.DOM.span(null, 
+            //   React.DOM.em(null,"Hell"),"o"),
+            //   "World !"),
+            //   document.getElementById("app")
+            // );
 
 
+
+const {createElement} = React;
+const {render} = ReactDOM;
+const style = {
+    backgroundColor:'orange',
+    color:'white',
+    fontFamily:'verdana'
+}
+const title = createElement('h1',{id:'title',className:'header',style:style},'Hello World');
+render(title,document.querySelector('#app'));
         </script>
     </body>
 </html>
